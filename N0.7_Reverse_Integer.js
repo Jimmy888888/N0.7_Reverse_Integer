@@ -9,14 +9,14 @@ loop(x>0){ tx = x % 10; zero_tail=( tx != 0 ? false: true); rx = rx * 10 + tx; x
 */
  var reverse = function(x) {
     let zero_tail = true;
-    let negtive = false;
+    let negtive = 1;
     let remainder = 0;
     let rev_x = 0;
     //avoid js overflow
     if( x < 0)
     {
         x = x * -1;
-        negtive = true;
+        negtive = -1;
     }
     while( x > 0)
     {
@@ -27,7 +27,7 @@ loop(x>0){ tx = x % 10; zero_tail=( tx != 0 ? false: true); rx = rx * 10 + tx; x
         
         x = Math.floor(x / 10);
     }
-    rev_x = ( negtive ? rev_x * -1 : rev_x);
+    rev_x = rev_x * negtive;
     //rev_x's range [-231, 231 - 1]
     if (rev_x < Math.pow(-2, 31) || rev_x > Math.pow(2, 31) - 1)
     {
